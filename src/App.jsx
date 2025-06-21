@@ -1,12 +1,8 @@
 import github from "./assets/github_logo.svg";
 import send from "./assets/send.svg";
-import dotenv from "dotenv"
 import { useState, useRef, useEffect } from "react";
 
-dotenv.config()
 
-const URL = process.env.URL
-const KEY = process.env.KEY
 
 export default function App() {
   const [chat, setChat] = useState([
@@ -32,10 +28,10 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${URL}`, {
+      const response = await fetch(`https://api.cohere.ai/v1/generate`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${KEY}`,
+          Authorization: `Bearer A2zxN5JCkfUgU4akmYmwvBuc9B92pufU0UmSijHG`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
